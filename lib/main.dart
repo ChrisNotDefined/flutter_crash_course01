@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './question.dart';
+import './answer.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -23,8 +25,10 @@ class _MyAppState extends State<MyApp> {
 
   void ansQuestion() {
     setState(() {
-      if(_questionIndex < questions.length-1) _questionIndex++;
-      else _questionIndex = 0;
+      if (_questionIndex < questions.length - 1)
+        _questionIndex++;
+      else
+        _questionIndex = 0;
     });
     print(_questionIndex);
   }
@@ -38,24 +42,13 @@ class _MyAppState extends State<MyApp> {
           title: Text('My First App'),
         ),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            Question(
               questions[_questionIndex],
-              textAlign: TextAlign.center,
             ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: ansQuestion,
-            ),
-            RaisedButton(
-              child: Text('Answer 2'),
-              onPressed: ansQuestion,
-            ),
-            RaisedButton(
-              child: Text('Answer 3'),
-              onPressed: ansQuestion,
-            ),
+            Answer(ansQuestion),
+            Answer(ansQuestion),
+            Answer(ansQuestion),
           ],
         ),
       ),
